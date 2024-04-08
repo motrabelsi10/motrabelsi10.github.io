@@ -168,7 +168,8 @@
                                     165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
                                     129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
                                     -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
-                                    <image class="home__blob-img" x='14' y='6' xlink:href="assets/img/moi-removebg-preview.png"/>
+                                <image class="home__blob-img" x='14' y='6'
+                                    xlink:href="assets/img/moi-removebg-preview.png" />
 
                             </g>
                         </svg>
@@ -642,7 +643,7 @@
 
                             <div>
                                 <h3 class="qualification__tittle">Summer Internship</h3>
-                                <span class="qualification__subtitle">Automated Testing Intern  - Swiver
+                                <span class="qualification__subtitle">Automated Testing Intern - Swiver
                                 </span>
 
                                 <div class="qualification__calendar">
@@ -714,7 +715,8 @@
 
             <div class="projects__container container grid">
                 <!--==================== PROJECTS 1 ====================-->
-                <div class="projects__content">
+                <div class="projects__content projects__content--half">
+
                     <div>
                         <i class="uil uil-swatchbook projects__icon"></i>
                         <h3 class="projects__title">OpenStack Cloud Infrastructure Project</h3>
@@ -727,8 +729,7 @@
 
                     <div class="projects__modal">
                         <div class="projects__modal-content">
-                            <h4 class="projects__modal-title">OpenStack Cloud Infrastructure Project - Project Lead
-                            </h4>
+                            <h4 class="projects__modal-title">OpenStack Cloud Infrastructure Project</h4>
                             <i class="uil uil-times projects__modal-close"></i>
 
                             <ul class="projects__modal-projects grid">
@@ -756,14 +757,13 @@
                                     <p>Integrated monitoring tools like Grafana and Prometheus for enhanced efficiency.
                                     </p>
                                 </li>
-
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <!--==================== PROJECTS 2 ====================-->
-                <div class="projects__content">
+                <div class="projects__content projects__content--half">
                     <div>
                         <i class="uil uil-swatchbook projects__icon"></i>
                         <h3 class="projects__title">Fast Rent</h3>
@@ -796,14 +796,11 @@
                     </div>
                 </div>
 
-
-
                 <!--==================== PROJECTS 3 ====================-->
-                <div class="projects__content">
+                <div class="projects__content projects__content--half">
                     <div>
                         <i class="uil uil-swatchbook projects__icon"></i>
-                        <h3 class="projects__title">Implementation of an ad-caisse decision support dashboard
-                        </h3>
+                        <h3 class="projects__title">Implementation of an ad-caisse decision support dashboard</h3>
                     </div>
 
                     <span class="button button--flex button--small button--link projects__button">
@@ -830,18 +827,16 @@
                                     <p>Close collaboration with business analysts to translate business requirements
                                         into technical specifications.</p>
                                 </li>
-
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <!--==================== PROJECTS 4 ====================-->
-                <div class="projects__content">
+                <div class="projects__content projects__content--half">
                     <div>
                         <i class="uil uil-swatchbook projects__icon"></i>
-                        <h3 class="projects__title">Automated Testing
-                        </h3>
+                        <h3 class="projects__title">Automated Testing</h3>
                     </div>
 
                     <span class="button button--flex button--small button--link projects__button">
@@ -856,24 +851,19 @@
                             <ul class="projects__modal-projects grid">
                                 <li class="projects__modal-project">
                                     <i class="uil uil-check-circle projects__modal-icon"></i>
-                                    <p>Conducting automated tests of React applications.
-                                    </p>
+                                    <p>Conducting automated tests of React applications.</p>
                                 </li>
                                 <li class="projects__modal-project">
                                     <i class="uil uil-check-circle projects__modal-icon"></i>
-                                    <p>Problem resolution and maintenance of the existing website.
-                                    </p>
+                                    <p>Problem resolution and maintenance of the existing website.</p>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
-
         </section>
+
 
 
         <!--==================== PAPERS ====================-->
@@ -885,8 +875,8 @@
                 <div class="swiper-wrapper">
                     <!--==================== PAPER 1 ====================-->
                     <div class="paper__content grid swiper-slide">
-                        <img src="assets/img/image.png" alt="CFD code OpenFOAM mesh for pool scrubbing geometry" style="width: 50%; height: auto;"
-                            class="paper__img">
+                        <img src="assets/img/image.png" alt="CFD code OpenFOAM mesh for pool scrubbing geometry"
+                            style="width: 50%; height: auto;" class="paper__img">
 
                         <div class="paper__dat">
                             <h3 class="paper__title">End-of-Studies Project</h3>
@@ -902,7 +892,8 @@
                     <!--==================== PAPER 2 ====================-->
                     <div class="paper__content grid swiper-slide">
                         <img src="assets/img/fastrent-removebg-preview.png"
-                            alt="Small modular reactor containment pressure and radioactivity" class="paper__img"  style="width: 50%; height: auto;">
+                            alt="Small modular reactor containment pressure and radioactivity" class="paper__img"
+                            style="width: 50%; height: auto;">
 
                         <div class="paper__dat">
                             <h3 class="paper__title">Multi-Platform Development Project - Fast Rent - Development Team
@@ -1079,9 +1070,27 @@
         /* Pour centrer la section horizontalement */
     }
 
-.projects__content i {
-    margin-right: 10px; /* Ajustez cette valeur selon vos besoins */
-}
+    .projects__content i {
+        margin-right: 10px;
+        /* Ajustez cette valeur selon vos besoins */
+    }
 
+    .projects__container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
 
+    .projects__content {
+        width: 48%;
+        /* Chaque carte occupe 48% de la largeur disponible avec 2% de marge entre elles */
+        margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .projects__content {
+            width: 100%;
+            /* Pour une seule carte par ligne sur les écrans plus petits */
+        }
+    }
 </style>
