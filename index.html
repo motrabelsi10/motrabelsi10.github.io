@@ -963,7 +963,7 @@
                         <div>
                             <h3 class="contact__title">Email</h3>
                             <p><a class="contact__subtitle"
-                                    href="mailto:mouhamedtrabelsi.28@gmail.com">mouhamedtrabelsi.28@gmail.com</a></p>
+                                    href="mailto:trabelsi.mohamed.1@esprit.tn">trabelsi.mohamed.1@esprit.tn</a></p>
                         </div>
                     </div>
 
@@ -1099,3 +1099,18 @@
         }
     }
 </style>
+
+<script>
+    function SendMail() {
+        var fullName = document.getElementById("fullName").value;
+        var email = document.getElementById("email_id").value;
+        var subject = document.getElementById("subject").value;
+        var message = document.getElementById("message").value;
+        
+        var mailto_link = 'mailto:trabelsi.mohamed.1@esprit.tn' + '?subject=' + subject + '&body=' + message + '%0A%0AFrom: ' + fullName + ' (' + email + ')';
+        
+        window.open(mailto_link, 'emailWindow');
+        
+        return false;
+    }
+</script>
