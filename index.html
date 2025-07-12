@@ -294,6 +294,15 @@
             background: var(--bg-secondary);
         }
 
+        .dark-mode {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --shadow-light: 0 4px 6px -1px rgba(255, 255, 255, 0.1);
+        }
+
+
         .section-header {
             text-align: center;
             margin-bottom: 3rem;
@@ -840,6 +849,35 @@
         html {
             scroll-behavior: smooth;
         }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--text-primary);
+            transition: color 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            color: var(--primary-color);
+        }
+
+        .lang-toggle {
+            background: none;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            color: var(--text-primary);
+            transition: color 0.3s ease;
+            padding: 0.3rem 0.7rem;
+            border-radius: 10px;
+        }
+
+        .lang-toggle:hover {
+            color: var(--primary-color);
+            background: rgba(0, 0, 0, 0.05);
+        }
     </style>
 </head>
 
@@ -850,12 +888,28 @@
             <div class="nav-container">
                 <a href="#" class="logo">Mohamed Trabelsi</a>
                 <ul class="nav-links">
-                    <li><a href="#home">Accueil</a></li>
-                    <li><a href="#about">À propos</a></li>
-                    <li><a href="#skills">Compétences</a></li>
-                    <li><a href="#experience">Expérience</a></li>
-                    <li><a href="#projects">Projets</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#home" data-lang="fr">Accueil</a><a href="#home" data-lang="en"
+                            style="display:none;">Home</a></li>
+                    <li><a href="#about" data-lang="fr">À propos</a><a href="#about" data-lang="en"
+                            style="display:none;">About</a></li>
+                    <li><a href="#skills" data-lang="fr">Compétences</a><a href="#skills" data-lang="en"
+                            style="display:none;">Skills</a></li>
+                    <li><a href="#experience" data-lang="fr">Expérience</a><a href="#experience" data-lang="en"
+                            style="display:none;">Experience</a></li>
+                    <li><a href="#projects" data-lang="fr">Projets</a><a href="#projects" data-lang="en"
+                            style="display:none;">Projects</a></li>
+                    <li><a href="#contact" data-lang="fr">Contact</a><a href="#contact" data-lang="en"
+                            style="display:none;">Contact</a></li>
+                    <li>
+                        <button class="theme-toggle" onclick="toggleTheme()">
+                            <i class="fas fa-moon" id="theme-icon"></i>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="lang-toggle" onclick="toggleLanguage()" aria-label="Changer de langue">
+                            <span id="lang-label">EN</span>
+                        </button>
+                    </li>
                 </ul>
                 <button class="mobile-menu">
                     <i class="fas fa-bars"></i>
@@ -871,17 +925,30 @@
                 <div class="hero-grid">
                     <div class="hero-text">
                         <h1>Mohamed Trabelsi</h1>
-                        <p class="subtitle">DevOps Engineer & Cloud Computing</p>
-                        <p>Passionné par les nouvelles technologies et l'automatisation, je transforme les
-                            infrastructures traditionnelles en solutions cloud évolutives et résilientes.</p>
+                        <p class="subtitle" data-lang="fr">DevOps Engineer & Cloud Computing</p>
+                        <p class="subtitle" data-lang="en" style="display:none;">DevOps Engineer & Cloud Computing</p>
+
+                        <p data-lang="fr">Passionné par les nouvelles technologies et l'automatisation, je transforme
+                            les infrastructures traditionnelles en solutions cloud évolutives et résilientes.</p>
+                        <p data-lang="en" style="display:none;">Passionate about new technologies and automation, I
+                            transform traditional infrastructures into scalable and resilient cloud solutions.</p>
+
                         <div class="cta-buttons">
-                            <a href="#contact" class="btn btn-primary">
+                            <a href="#contact" class="btn btn-primary" data-lang="fr">
                                 <i class="fas fa-envelope"></i>
                                 Me contacter
                             </a>
-                            <a href="#projects" class="btn btn-secondary">
+                            <a href="#contact" class="btn btn-primary" data-lang="en" style="display:none;">
+                                <i class="fas fa-envelope"></i>
+                                Contact me
+                            </a>
+                            <a href="#projects" class="btn btn-secondary" data-lang="fr">
                                 <i class="fas fa-folder-open"></i>
                                 Voir mes projets
+                            </a>
+                            <a href="#projects" class="btn btn-secondary" data-lang="en" style="display:none;">
+                                <i class="fas fa-folder-open"></i>
+                                View my projects
                             </a>
                         </div>
                     </div>
@@ -891,7 +958,8 @@
                                 <img src="Mohamed Trabelsi.jpg" alt="Mohamed Trabelsi" />
                             </div>
                             <h3>DevOps Engineer</h3>
-                            <p>Tunis, Tunisie</p>
+                            <p data-lang="fr">Tunis, Tunisie</p>
+                            <p data-lang="en" style="display:none;">Tunis, Tunisia</p>
                             <div class="social-links">
                                 <a href="https://www.linkedin.com/in/trabelsi-mohamed/" target="_blank">
                                     <i class="fab fa-linkedin"></i>
@@ -917,38 +985,57 @@
     <section id="about" class="section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">À propos de moi</h2>
-                <p class="section-subtitle">Découvrez mon parcours et mes passions</p>
+                <h2 class="section-title" data-lang="fr">À propos de moi</h2>
+                <h2 class="section-title" data-lang="en" style="display:none;">About me</h2>
+                <p class="section-subtitle" data-lang="fr">Découvrez mon parcours et mes passions</p>
+                <p class="section-subtitle" data-lang="en" style="display:none;">Discover my journey and passions</p>
             </div>
             <div class="about-grid">
                 <div class="about-text">
-                    <p>Actuellement ingénieur en DevOps et Cloud Computing, je suis un professionnel curieux, rigoureux
-                        et passionné par les nouvelles technologies. J'ai consolidé mes compétences à travers des
-                        projets professionnels et académiques variés.</p>
-                    <p>Mon expertise couvre l'ensemble du cycle de vie DevOps, de la conteneurisation avec Docker et
-                        Kubernetes à l'automatisation des déploiements avec Jenkins et GitLab CI/CD. Je maîtrise
-                        également les outils de monitoring comme Prometheus et Grafana, ainsi que les solutions
+                    <p data-lang="fr">Actuellement ingénieur en DevOps et Cloud Computing, je suis un professionnel
+                        curieux, rigoureux et passionné par les nouvelles technologies. J'ai consolidé mes compétences à
+                        travers des projets professionnels et académiques variés.</p>
+                    <p data-lang="en" style="display:none;">Currently a DevOps and Cloud Computing engineer, I am a
+                        curious, rigorous professional passionate about new technologies. I have consolidated my skills
+                        through various professional and academic projects.</p>
+
+                    <p data-lang="fr">Mon expertise couvre l'ensemble du cycle de vie DevOps, de la conteneurisation
+                        avec Docker et Kubernetes à l'automatisation des déploiements avec Jenkins et GitLab CI/CD. Je
+                        maîtrise également les outils de monitoring comme Prometheus et Grafana, ainsi que les solutions
                         d'infrastructure as code avec Terraform et Ansible.</p>
-                    <p>Diplômé de l'ESPRIT en Architecture IT et Cloud Computing, et titulaire d'une licence en
-                        Informatique spécialisée en Big Data, je combine une solide formation théorique avec une
-                        expérience pratique acquise lors de mes stages chez Wevioo, Smart Med SA, et Swiver.</p>
+                    <p data-lang="en" style="display:none;">My expertise covers the entire DevOps lifecycle, from
+                        containerization with Docker and Kubernetes to deployment automation with Jenkins and GitLab
+                        CI/CD. I also master monitoring tools like Prometheus and Grafana, as well as infrastructure as
+                        code solutions with Terraform and Ansible.</p>
+
+                    <p data-lang="fr">Diplômé de l'ESPRIT en Architecture IT et Cloud Computing, et titulaire d'une
+                        licence en Informatique spécialisée en Big Data, je combine une solide formation théorique avec
+                        une expérience pratique acquise lors de mes stages chez Wevioo, Smart Med SA, et Swiver.</p>
+                    <p data-lang="en" style="display:none;">Graduate from ESPRIT in IT Architecture and Cloud Computing,
+                        and holder of a Computer Science degree specialized in Big Data, I combine solid theoretical
+                        training with practical experience acquired during my internships at Wevioo, Smart Med SA, and
+                        Swiver.</p>
                 </div>
                 <div class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-number">1+</div>
-                        <div class="stat-label">Années d'expérience</div>
+                        <div class="stat-label" data-lang="fr">Années d'expérience</div>
+                        <div class="stat-label" data-lang="en" style="display:none;">Years of experience</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number">15+</div>
-                        <div class="stat-label">Technologies maîtrisées</div>
+                        <div class="stat-label" data-lang="fr">Technologies maîtrisées</div>
+                        <div class="stat-label" data-lang="en" style="display:none;">Technologies mastered</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number">5+</div>
-                        <div class="stat-label">Projets réalisés</div>
+                        <div class="stat-label" data-lang="fr">Projets réalisés</div>
+                        <div class="stat-label" data-lang="en" style="display:none;">Projects completed</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number">100%</div>
-                        <div class="stat-label">Engagement</div>
+                        <div class="stat-label" data-lang="fr">Engagement</div>
+                        <div class="stat-label" data-lang="en" style="display:none;">Commitment</div>
                     </div>
                 </div>
             </div>
@@ -959,12 +1046,15 @@
     <section id="skills" class="section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Compétences</h2>
-                <p class="section-subtitle">Technologies et outils que je maîtrise</p>
+                <h2 class="section-title" data-lang="fr">Compétences</h2>
+                <h2 class="section-title" data-lang="en" style="display:none;">Skills</h2>
+                <p class="section-subtitle" data-lang="fr">Technologies et outils que je maîtrise</p>
+                <p class="section-subtitle" data-lang="en" style="display:none;">Technologies and tools I master</p>
             </div>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3><i class="fas fa-cloud"></i> Cloud & Infrastructure</h3>
+                    <h3 data-lang="fr"><i class="fas fa-cloud"></i> Cloud & Infrastructure</h3>
+                    <h3 data-lang="en" style="display:none;"><i class="fas fa-cloud"></i> Cloud & Infrastructure</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Kubernetes</span>
                         <span class="skill-tag">Docker</span>
@@ -974,7 +1064,8 @@
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3><i class="fas fa-code-branch"></i> CI/CD & DevOps</h3>
+                    <h3 data-lang="fr"><i class="fas fa-code-branch"></i> CI/CD & DevOps</h3>
+                    <h3 data-lang="en" style="display:none;"><i class="fas fa-code-branch"></i> CI/CD & DevOps</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Jenkins</span>
                         <span class="skill-tag">GitLab CI/CD</span>
@@ -984,7 +1075,9 @@
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3><i class="fas fa-chart-line"></i> Monitoring & Observability</h3>
+                    <h3 data-lang="fr"><i class="fas fa-chart-line"></i> Monitoring & Observability</h3>
+                    <h3 data-lang="en" style="display:none;"><i class="fas fa-chart-line"></i> Monitoring &
+                        Observability</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Prometheus</span>
                         <span class="skill-tag">Grafana</span>
@@ -993,7 +1086,8 @@
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Développement</h3>
+                    <h3 data-lang="fr"><i class="fas fa-code"></i> Développement</h3>
+                    <h3 data-lang="en" style="display:none;"><i class="fas fa-code"></i> Development</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">React.js</span>
                         <span class="skill-tag">Angular</span>
@@ -1003,7 +1097,8 @@
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3><i class="fas fa-database"></i> Base de données</h3>
+                    <h3 data-lang="fr"><i class="fas fa-database"></i> Base de données</h3>
+                    <h3 data-lang="en" style="display:none;"><i class="fas fa-database"></i> Database</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">SQL</span>
                         <span class="skill-tag">MongoDB</span>
@@ -1012,7 +1107,9 @@
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3><i class="fas fa-shield-alt"></i> Sécurité & Gestion</h3>
+                    <h3 data-lang="fr"><i class="fas fa-shield-alt"></i> Sécurité & Gestion</h3>
+                    <h3 data-lang="en" style="display:none;"><i class="fas fa-shield-alt"></i> Security & Management
+                    </h3>
                     <div class="skill-tags">
                         <span class="skill-tag">HashiCorp Vault</span>
                         <span class="skill-tag">Git</span>
@@ -1029,19 +1126,26 @@
     <section id="experience" class="section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Expérience Professionnelle</h2>
-                <p class="section-subtitle">Mon parcours professionnel et mes réalisations</p>
+                <h2 class="section-title" data-lang="fr">Expérience Professionnelle</h2>
+                <h2 class="section-title" data-lang="en" style="display:none;">Professional Experience</h2>
+                <p class="section-subtitle" data-lang="fr">Mon parcours professionnel et mes réalisations</p>
+                <p class="section-subtitle" data-lang="en" style="display:none;">My professional journey and
+                    achievements</p>
             </div>
             <div class="experience-timeline">
                 <div class="experience-item">
                     <div class="experience-card">
                         <div class="experience-header">
-                            <h3 class="experience-title">Stagiaire DevOps</h3>
-                            <p class="experience-company">Wevioo, Tunis</p>
-                            <span class="experience-period">Février 2025 – Juillet 2025</span>
+                            <h3 class="experience-title" data-lang="fr">Stagiaire DevOps</h3>
+                            <h3 class="experience-title" data-lang="en" style="display:none;">DevOps Intern</h3>
+                            <p class="experience-company" data-lang="fr">Wevioo, Tunis</p>
+                            <p class="experience-company" data-lang="en" style="display:none;">Wevioo, Tunis</p>
+                            <span class="experience-period" data-lang="fr">Février 2025 – Juillet 2025</span>
+                            <span class="experience-period" data-lang="en" style="display:none;">February 2025 – July
+                                2025</span>
                         </div>
                         <div class="experience-description">
-                            <ul>
+                            <ul data-lang="fr">
                                 <li>Mise en place automatisée d'une infrastructure résiliente et évolutive pour
                                     l'hébergement d'applications métier</li>
                                 <li>Création d'une image personnalisée adaptée aux contraintes de l'environnement cible
@@ -1052,6 +1156,17 @@
                                     et la performance des services</li>
                                 <li>Réalisation d'une plateforme innovante combinant une solution low-code et un backend
                                     avancé</li>
+                            </ul>
+                            <ul data-lang="en" style="display:none;">
+                                <li>Automated setup of resilient and scalable infrastructure for hosting business
+                                    applications</li>
+                                <li>Creation of a custom image adapted to target environment constraints</li>
+                                <li>Design and implementation of a complete continuous integration and deployment
+                                    pipeline</li>
+                                <li>Implementation of a monitoring and alerting system to ensure service availability
+                                    and performance</li>
+                                <li>Development of an innovative platform combining low-code solution and advanced
+                                    backend</li>
                             </ul>
                         </div>
                         <div class="experience-skills">
@@ -1073,18 +1188,29 @@
                 <div class="experience-item">
                     <div class="experience-card">
                         <div class="experience-header">
-                            <h3 class="experience-title">Stagiaire DevOps</h3>
-                            <p class="experience-company">Smart Med SA, Tunis</p>
-                            <span class="experience-period">Juin 2024 – Août 2024</span>
+                            <h3 class="experience-title" data-lang="fr">Stagiaire DevOps</h3>
+                            <h3 class="experience-title" data-lang="en" style="display:none;">DevOps Intern</h3>
+                            <p class="experience-company" data-lang="fr">Smart Med SA, Tunis</p>
+                            <p class="experience-company" data-lang="en" style="display:none;">Smart Med SA, Tunis</p>
+                            <span class="experience-period" data-lang="fr">Juin 2024 – Août 2024</span>
+                            <span class="experience-period" data-lang="en" style="display:none;">June 2024 – August
+                                2024</span>
                         </div>
                         <div class="experience-description">
-                            <ul>
+                            <ul data-lang="fr">
                                 <li>Création de modèles de déploiement réutilisables pour faciliter l'installation des
                                     applications</li>
                                 <li>Automatisation du cycle de vie des déploiements via un système de gestion déclaratif
                                 </li>
                                 <li>Structuration et amélioration des workflows de développement et de livraison en
                                     suivant les principes GitOps</li>
+                            </ul>
+                            <ul data-lang="en" style="display:none;">
+                                <li>Creation of reusable deployment templates to facilitate application installation
+                                </li>
+                                <li>Automation of deployment lifecycle through declarative management system</li>
+                                <li>Structuring and improving development and delivery workflows following GitOps
+                                    principles</li>
                             </ul>
                         </div>
                         <div class="experience-skills">
@@ -1101,17 +1227,30 @@
                 <div class="experience-item">
                     <div class="experience-card">
                         <div class="experience-header">
-                            <h3 class="experience-title">Stagiaire en Test Automatisé et Développeur Web</h3>
-                            <p class="experience-company">Swiver, Tunis</p>
-                            <span class="experience-period">Juin 2023 – Novembre 2023</span>
+                            <h3 class="experience-title" data-lang="fr">Stagiaire en Test Automatisé et Développeur Web
+                            </h3>
+                            <h3 class="experience-title" data-lang="en" style="display:none;">Automated Testing Intern
+                                and Web Developer</h3>
+                            <p class="experience-company" data-lang="fr">Swiver, Tunis</p>
+                            <p class="experience-company" data-lang="en" style="display:none;">Swiver, Tunis</p>
+                            <span class="experience-period" data-lang="fr">Juin 2023 – Novembre 2023</span>
+                            <span class="experience-period" data-lang="en" style="display:none;">June 2023 – November
+                                2023</span>
                         </div>
                         <div class="experience-description">
-                            <ul>
+                            <ul data-lang="fr">
                                 <li>Maintenance évolutive et corrective d'un site web en production</li>
                                 <li>Suivi et résolution des anomalies à travers un système de gestion de tickets</li>
                                 <li>Réalisation d'une étude comparative entre différentes options techniques</li>
                                 <li>Conception et exécution de tests automatisés pour valider le bon fonctionnement des
                                     applications web</li>
+                            </ul>
+                            <ul data-lang="en" style="display:none;">
+                                <li>Evolutionary and corrective maintenance of a production website</li>
+                                <li>Tracking and resolution of anomalies through ticket management system</li>
+                                <li>Conducting comparative study between different technical options</li>
+                                <li>Design and execution of automated tests to validate proper functioning of web
+                                    applications</li>
                             </ul>
                         </div>
                         <div class="experience-skills">
@@ -1127,16 +1266,27 @@
                 <div class="experience-item">
                     <div class="experience-card">
                         <div class="experience-header">
-                            <h3 class="experience-title">Stagiaire en Business Intelligence</h3>
-                            <p class="experience-company">Twins Digital Labs, Tunis</p>
-                            <span class="experience-period">Février 2022 – Juin 2022</span>
+                            <h3 class="experience-title" data-lang="fr">Stagiaire en Business Intelligence</h3>
+                            <h3 class="experience-title" data-lang="en" style="display:none;">Business Intelligence
+                                Intern</h3>
+                            <p class="experience-company" data-lang="fr">Twins Digital Labs, Tunis</p>
+                            <p class="experience-company" data-lang="en" style="display:none;">Twins Digital Labs, Tunis
+                            </p>
+                            <span class="experience-period" data-lang="fr">Février 2022 – Juin 2022</span>
+                            <span class="experience-period" data-lang="en" style="display:none;">February 2022 – June
+                                2022</span>
                         </div>
                         <div class="experience-description">
-                            <ul>
+                            <ul data-lang="fr">
                                 <li>Développement de tableaux de bord interactifs pour faciliter la visualisation et
                                     l'analyse décisionnelle</li>
                                 <li>Vérification de la qualité des données et des rapports à travers des tests
                                     approfondis</li>
+                            </ul>
+                            <ul data-lang="en" style="display:none;">
+                                <li>Development of interactive dashboards to facilitate visualization and decision
+                                    analysis</li>
+                                <li>Verification of data and report quality through comprehensive testing</li>
                             </ul>
                         </div>
                         <div class="experience-skills">
@@ -1155,8 +1305,10 @@
     <section id="projects" class="section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Projets Académiques</h2>
-                <p class="section-subtitle">Découvrez mes réalisations techniques</p>
+                <h2 class="section-title" data-lang="fr">Projets Académiques</h2>
+                <h2 class="section-title" data-lang="en" style="display:none;">Academic Projects</h2>
+                <p class="section-subtitle" data-lang="fr">Découvrez mes réalisations techniques</p>
+                <p class="section-subtitle" data-lang="en" style="display:none;">Discover my technical achievements</p>
             </div>
             <div class="projects-grid">
                 <div class="project-card">
@@ -1164,11 +1316,16 @@
                         <i class="fas fa-rocket"></i>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Pipeline CI/CD Automatisé</h3>
-                        <p class="project-description">
+                        <h3 class="project-title" data-lang="fr">Pipeline CI/CD Automatisé</h3>
+                        <h3 class="project-title" data-lang="en" style="display:none;">Automated CI/CD Pipeline</h3>
+                        <p class="project-description" data-lang="fr">
                             Création d'un pipeline CI/CD complet avec Jenkins, incluant l'analyse de qualité de code
                             avec SonarQube, la gestion des conteneurs Docker, et la surveillance avec Prometheus et
                             Grafana.
+                        </p>
+                        <p class="project-description" data-lang="en" style="display:none;">
+                            Creation of a complete CI/CD pipeline with Jenkins, including code quality analysis with
+                            SonarQube, Docker container management, and monitoring with Prometheus and Grafana.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">Jenkins</span>
@@ -1185,10 +1342,16 @@
                         <i class="fas fa-cloud"></i>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Infrastructure Cloud avec OpenStack</h3>
-                        <p class="project-description">
+                        <h3 class="project-title" data-lang="fr">Infrastructure Cloud avec OpenStack</h3>
+                        <h3 class="project-title" data-lang="en" style="display:none;">Cloud Infrastructure with
+                            OpenStack</h3>
+                        <p class="project-description" data-lang="fr">
                             Mise en place d'une infrastructure Cloud complète basée sur OpenStack avec déploiement d'une
                             application FullStack utilisant Spring Boot et Angular dans un environnement Kubernetes.
+                        </p>
+                        <p class="project-description" data-lang="en" style="display:none;">
+                            Setup of a complete Cloud infrastructure based on OpenStack with deployment of a FullStack
+                            application using Spring Boot and Angular in a Kubernetes environment.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">OpenStack</span>
@@ -1205,11 +1368,17 @@
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Application Multi-plateforme</h3>
-                        <p class="project-description">
+                        <h3 class="project-title" data-lang="fr">Application Multi-plateforme</h3>
+                        <h3 class="project-title" data-lang="en" style="display:none;">Multi-platform Application</h3>
+                        <p class="project-description" data-lang="fr">
                             Développement d'une application complète avec backend Symfony, interface web, et application
                             mobile cross-platform utilisant CodeName One. Gestion complète du cycle de développement
                             avec Git.
+                        </p>
+                        <p class="project-description" data-lang="en" style="display:none;">
+                            Development of a complete application with Symfony backend, web interface, and
+                            cross-platform mobile application using CodeName One. Complete management of development
+                            cycle with Git.
                         </p>
                         <div class="project-tech">
                             <span class="tech-tag">Symfony</span>
@@ -1228,8 +1397,11 @@
     <section id="contact" class="section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Contact</h2>
-                <p class="section-subtitle">N'hésitez pas à me contacter pour discuter de vos projets</p>
+                <h2 class="section-title" data-lang="fr">Contact</h2>
+                <h2 class="section-title" data-lang="en" style="display:none;">Contact</h2>
+                <p class="section-subtitle" data-lang="fr">N'hésitez pas à me contacter pour discuter de vos projets</p>
+                <p class="section-subtitle" data-lang="en" style="display:none;">Feel free to contact me to discuss your
+                    projects</p>
             </div>
             <div class="contact-grid">
                 <div class="contact-info">
@@ -1238,8 +1410,10 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="contact-details">
-                            <h4>Localisation</h4>
-                            <p>Tunis, Tunisie</p>
+                            <h4 data-lang="fr">Localisation</h4>
+                            <h4 data-lang="en" style="display:none;">Location</h4>
+                            <p data-lang="fr">Tunis, Tunisie</p>
+                            <p data-lang="en" style="display:none;">Tunis, Tunisia</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -1247,7 +1421,8 @@
                             <i class="fas fa-phone"></i>
                         </div>
                         <div class="contact-details">
-                            <h4>Téléphone</h4>
+                            <h4 data-lang="fr">Téléphone</h4>
+                            <h4 data-lang="en" style="display:none;">Phone</h4>
                             <p>+216 29 628 610</p>
                         </div>
                     </div>
@@ -1273,7 +1448,8 @@
                 <div class="contact-form">
                     <form>
                         <div class="form-group">
-                            <label for="name">Nom complet</label>
+                            <label for="name" data-lang="fr">Nom complet</label>
+                            <label for="name" data-lang="en" style="display:none;">Full Name</label>
                             <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
@@ -1281,16 +1457,21 @@
                             <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="subject">Sujet</label>
+                            <label for="subject" data-lang="fr">Sujet</label>
+                            <label for="subject" data-lang="en" style="display:none;">Subject</label>
                             <input type="text" id="subject" name="subject" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
                             <textarea id="message" name="message" required></textarea>
                         </div>
-                        <button type="submit" class="submit-btn">
+                        <button type="submit" class="submit-btn" data-lang="fr">
                             <i class="fas fa-paper-plane"></i>
                             Envoyer le message
+                        </button>
+                        <button type="submit" class="submit-btn" data-lang="en" style="display:none;">
+                            <i class="fas fa-paper-plane"></i>
+                            Send message
                         </button>
                     </form>
                 </div>
@@ -1304,35 +1485,87 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Mohamed Trabelsi</h3>
-                    <p>DevOps Engineer passionné par l'automatisation et les technologies cloud. Toujours à la recherche
-                        de nouveaux défis techniques.</p>
+                    <p data-lang="fr">DevOps Engineer passionné par l'automatisation et les technologies cloud. Toujours
+                        à la recherche de nouveaux défis techniques.</p>
+                    <p data-lang="en" style="display:none;">DevOps Engineer passionate about automation and cloud
+                        technologies. Always looking for new technical challenges.</p>
                 </div>
                 <div class="footer-section">
-                    <h3>Liens rapides</h3>
-                    <p><a href="#about">À propos</a></p>
-                    <p><a href="#skills">Compétences</a></p>
-                    <p><a href="#experience">Expérience</a></p>
-                    <p><a href="#projects">Projets</a></p>
+                    <h3 data-lang="fr">Liens rapides</h3>
+                    <h3 data-lang="en" style="display:none;">Quick Links</h3>
+                    <p><a href="#about" data-lang="fr">À propos</a><a href="#about" data-lang="en"
+                            style="display:none;">About</a></p>
+                    <p><a href="#skills" data-lang="fr">Compétences</a><a href="#skills" data-lang="en"
+                            style="display:none;">Skills</a></p>
+                    <p><a href="#experience" data-lang="fr">Expérience</a><a href="#experience" data-lang="en"
+                            style="display:none;">Experience</a></p>
+                    <p><a href="#projects" data-lang="fr">Projets</a><a href="#projects" data-lang="en"
+                            style="display:none;">Projects</a></p>
                 </div>
                 <div class="footer-section">
                     <h3>Contact</h3>
                     <p>Email: trabelsi.mohamed.1@esprit.tn</p>
-                    <p>Téléphone: +216 29 628 610</p>
-                    <p>Localisation: Tunis, Tunisie</p>
+                    <p data-lang="fr">Téléphone: +216 29 628 610</p>
+                    <p data-lang="en" style="display:none;">Phone: +216 29 628 610</p>
+                    <p data-lang="fr">Localisation: Tunis, Tunisie</p>
+                    <p data-lang="en" style="display:none;">Location: Tunis, Tunisia</p>
                 </div>
                 <div class="footer-section">
                     <h3>Certifications</h3>
                     <p>CCNA: Switching, Routing, and Wireless Essentials (2023)</p>
-                    <p>Secourisme - Croissant Rouge Ariana (2021)</p>
+                    <p data-lang="fr">Secourisme - Croissant Rouge Ariana (2021)</p>
+                    <p data-lang="en" style="display:none;">First Aid - Red Crescent Ariana (2021)</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Mohamed Trabelsi. Tous droits réservés.</p>
+                <p data-lang="fr">&copy; 2025 Mohamed Trabelsi. Tous droits réservés.</p>
+                <p data-lang="en" style="display:none;">&copy; 2025 Mohamed Trabelsi. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Language toggle functionality
+        function toggleLanguage() {
+            const currentLang = document.documentElement.lang;
+            const newLang = currentLang === 'fr' ? 'en' : 'fr';
+            const langLabel = document.getElementById('lang-label');
+
+            // Update document language
+            document.documentElement.lang = newLang;
+
+            // Update language button text
+            langLabel.textContent = newLang === 'fr' ? 'EN' : 'FR';
+
+            // Toggle visibility of elements with data-lang attributes
+            const frElements = document.querySelectorAll('[data-lang="fr"]');
+            const enElements = document.querySelectorAll('[data-lang="en"]');
+
+            if (newLang === 'en') {
+                frElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display = el.tagName === 'LI' ? 'list-item' : 'block');
+            } else {
+                enElements.forEach(el => el.style.display = 'none');
+                frElements.forEach(el => el.style.display = el.tagName === 'LI' ? 'list-item' : 'block');
+            }
+        }
+
+        // Theme toggle functionality
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+
+            body.classList.toggle('dark-theme');
+
+            if (body.classList.contains('dark-theme')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        }
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1346,110 +1579,54 @@
                 }
             });
         });
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.getElementById('theme-icon');
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', function () {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(255, 255, 255, 0.98)';
-                nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            body.classList.toggle('dark-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
             } else {
-                nav.style.background = 'rgba(255, 255, 255, 0.95)';
-                nav.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
             }
-        });
+        }
 
         // Mobile menu toggle
         const mobileMenu = document.querySelector('.mobile-menu');
         const navLinks = document.querySelector('.nav-links');
 
-        mobileMenu.addEventListener('click', function () {
+        mobileMenu.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            const icon = this.querySelector('i');
-            if (navLinks.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
         });
 
         // Form submission
-        document.querySelector('.contact-form form').addEventListener('submit', function (e) {
+        document.querySelector('form').addEventListener('submit', function (e) {
             e.preventDefault();
-            const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.innerHTML;
-
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
-            submitBtn.disabled = true;
-
-            // Simulate form submission
-            setTimeout(() => {
-                submitBtn.innerHTML = '<i class="fas fa-check"></i> Message envoyé !';
-                submitBtn.style.background = '#10b981';
-
-                setTimeout(() => {
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                    submitBtn.style.background = '';
-                    this.reset();
-                }, 2000);
-            }, 2000);
+            alert('Message envoyé avec succès!');
         });
 
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        // Add active class to nav links on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
 
-        const observer = new IntersectionObserver(function (entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
                 }
             });
-        }, observerOptions);
 
-        // Observe all sections
-        document.querySelectorAll('.section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Observe skill categories, experience items, and project cards
-        document.querySelectorAll('.skill-category, .experience-item, .project-card').forEach(item => {
-            observer.observe(item);
-        });
-
-        // Add some interactive effects
-        document.querySelectorAll('.btn, .project-link, .contact-item').forEach(element => {
-            element.addEventListener('mouseenter', function () {
-                this.style.transform = 'translateY(-3px)';
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
             });
-
-            element.addEventListener('mouseleave', function () {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-
-        // Typing effect for hero title
-        const heroTitle = document.querySelector('.hero-text h1');
-        const originalText = heroTitle.textContent;
-        heroTitle.textContent = '';
-
-        let i = 0;
-        const typeWriter = () => {
-            if (i < originalText.length) {
-                heroTitle.textContent += originalText.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
-        };
-
-        // Start typing effect after page load
-        window.addEventListener('load', () => {
-            setTimeout(typeWriter, 1000);
         });
     </script>
 </body>
