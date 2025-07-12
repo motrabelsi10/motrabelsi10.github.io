@@ -1,0 +1,27 @@
+
+Bonjour,
+
+Je me permets de vous contacter car je suis actuellement à la recherche d'un stage d'été dans le domaine du Cloud Computing.
+
+En tant qu’étudiant poursuivant un cycle d'ingénieur avec une spécialisation en Architecture IT et Cloud Computing, j’ai eu l’opportunité d'acquérir des compétences solides en Ansible, Kubernetes, OpenStack, Docker, Spring Boot et Angular. Mon parcours professionnel m’a également permis de développer une expertise en Business Intelligence, développement de logiciels, et tests automatisés.
+
+Je serais ravi d’effectuer mon stage d'été au sein d’une entreprise dynamique  [ou startup] comme [Nom de l'entreprise] et d’apporter mes compétences à votre équipe.
+
+Veuillez trouver ci-joint mon CV et mon portfolio. Je reste à votre disposition pour toute information supplémentaire.
+
+Cordialement,
+Trabelsi Mohamed.
+
+
+Hello,
+
+I am reaching out to you as I am currently seeking a summer internship in the field of Cloud Computing.
+
+As a student pursuing an engineering degree with a specialization in IT Architecture and Cloud Computing, I have had the opportunity to acquire solid skills in Ansible, Kubernetes, OpenStack, Docker, Spring Boot, and Angular. My professional background has also allowed me to develop expertise in Business Intelligence, software development, and automated testing.
+
+I would be delighted to undertake my summer internship within a dynamic company [or startup] like [Company Name] and contribute my skills to your team.
+
+Please find attached my CV and portfolio. I am available for any further information you may require.
+
+Best regards,
+Trabelsi Mohamed.
